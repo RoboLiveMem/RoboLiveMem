@@ -1,0 +1,9 @@
+{
+ "title": "S08 \u00b7 Parcel locker (mailroom, courier robot)",
+ "task": "Task: bring Dr. Lee's parcel to the reception desk. It is on the drop-off shelf when the agent starts thinking.",
+ "change": "While it thinks, the courier robot stores the parcel in one of six identical lockers.",
+ "events": {
+  "courier_start": "the courier robot arrives",
+  "courier_stored": "the courier closed the parcel in a locker"
+ }
+}

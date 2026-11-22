@@ -1,0 +1,25 @@
+[build-system]
+requires = ["setuptools>=64"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "robolivemem"
+version = "0.1.0"
+description = "RoboLiveMem: is robot memory solved when the world does not wait?"
+readme = "README.md"
+license = {text = "MIT"}
+requires-python = ">=3.9"
+dependencies = ["numpy", "pillow", "requests"]
+
+[project.optional-dependencies]
+dev = ["pytest"]
+
+[project.scripts]
+robolivemem = "robolivemem.tabletop:cli"
+
+[project.urls]
+Homepage = "https://robolivemem.github.io"
+Repository = "https://github.com/RoboLiveMem/RoboLiveMem"
+
+[tool.setuptools]
+packages = ["robolivemem"]

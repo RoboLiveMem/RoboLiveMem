@@ -1,0 +1,9 @@
+{
+ "title": "S03 \u00b7 Robot vacuum (home living room, machine)",
+ "task": "Task: put the soccer ball into the toy box. The ball is on the rug when the agent starts thinking.",
+ "change": "While it thinks, the robot vacuum pushes the ball under a sofa, out of view.",
+ "events": {
+  "vacuum_start": "the robot vacuum starts its cleaning run",
+  "ball_pushed": "the vacuum pushed the ball under a sofa"
+ }
+}

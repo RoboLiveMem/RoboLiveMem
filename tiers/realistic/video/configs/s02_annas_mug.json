@@ -1,0 +1,10 @@
+{
+ "title": "S02 \u00b7 Anna's mug (home dining room, helper robot)",
+ "task": "Task: put Anna's mug (the one at mark 1 at the start) on Anna's tray. The two mugs look identical.",
+ "change": "While it thinks, the helper robot moves Anna's mug to make room for a cutting board. Afterwards the mugs still look identical.",
+ "events": {
+  "helper_start": "the helper robot starts setting the table",
+  "helper_moved_mug": "the helper moved a mug to spot 3",
+  "helper_board_down": "the cutting board now stands where that mug was"
+ }
+}

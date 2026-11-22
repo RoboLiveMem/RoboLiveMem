@@ -1,0 +1,9 @@
+{
+ "title": "S01 \u00b7 Put-away (home kitchen, helper robot)",
+ "task": "Task: put the apple into the fruit bowl on the island. The apple is on the counter when the agent starts thinking.",
+ "change": "While it thinks, the helper robot puts the apple into one of three identical lidded bins. Afterwards every bin looks the same.",
+ "events": {
+  "helper_start": "the helper robot comes to tidy the counter",
+  "helper_put_away": "the helper put the apple into a bin and closed the lid"
+ }
+}

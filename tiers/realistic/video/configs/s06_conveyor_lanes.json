@@ -1,0 +1,8 @@
+{
+ "title": "S06 \u00b7 Conveyor lanes (warehouse, sorter)",
+ "task": "Task: put the order tote (at the pick station under the scanner when the agent starts thinking) on the packing table.",
+ "change": "While it thinks, the conveyor restarts and sorts three identical totes into three spur lanes.",
+ "events": {
+  "belt_start": "the conveyor restarts and the sorter diverts the totes"
+ }
+}

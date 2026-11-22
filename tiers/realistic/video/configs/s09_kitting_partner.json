@@ -1,0 +1,9 @@
+{
+ "title": "S09 \u00b7 Kitting partner (warehouse, partner robot)",
+ "task": "Task: every tote must end with exactly one part. The partner robot works the same rack from the other side.",
+ "change": "While it thinks, the partner kits some of the totes. Closed totes look the same full or empty.",
+ "events": {
+  "partner_start": "the partner robot starts kitting",
+  "partner_kitted": "the partner dropped a part into a tote"
+ }
+}

@@ -1,0 +1,9 @@
+{
+ "title": "S04 \u00b7 Salted soup (home kitchen, helper robot)",
+ "task": "Task: the soup needs exactly one portion of salt; nobody has salted it when the agent starts thinking.",
+ "change": "While it thinks, the helper robot salts the soup. Salt is invisible in the soup afterwards.",
+ "events": {
+  "helper_start": "the helper robot comes to the stove",
+  "seasoned": "a portion of seasoning went into the pot"
+ }
+}

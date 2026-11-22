@@ -1,0 +1,486 @@
+{
+ "env_id": "RepickStreamW",
+ "record_count": 80,
+ "records": [
+  {
+   "task": "RepickStreamW",
+   "episode": 0,
+   "seed": 920000,
+   "difficulty": "easy"
+  },
+  {
+   "task": "RepickStreamW",
+   "episode": 1,
+   "seed": 920100,
+   "difficulty": "medium"
+  },
+  {
+   "task": "RepickStreamW",
+   "episode": 2,
+   "seed": 920200,
+   "difficulty": "hard"
+  },
+  {
+   "task": "RepickStreamW",
+   "episode": 3,
+   "seed": 920300,
+   "difficulty": "easy"
+  },
+  {
+   "task": "RepickStreamW",
+   "episode": 4,
+   "seed": 920400,
+   "difficulty": "medium"
+  },
+  {
+   "task": "RepickStreamW",
+   "episode": 5,
+   "seed": 920500,
+   "difficulty": "hard"
+  },
+  {
+   "task": "RepickStreamW",
+   "episode": 6,
+   "seed": 920600,
+   "difficulty": "easy"
+  },
+  {
+   "task": "RepickStreamW",
+   "episode": 7,
+   "seed": 920700,
+   "difficulty": "medium"
+  },
+  {
+   "task": "RepickStreamW",
+   "episode": 8,
+   "seed": 920800,
+   "difficulty": "hard"
+  },
+  {
+   "task": "RepickStreamW",
+   "episode": 9,
+   "seed": 920900,
+   "difficulty": "easy"
+  },
+  {
+   "task": "RepickStreamW",
+   "episode": 10,
+   "seed": 921000,
+   "difficulty": "medium"
+  },
+  {
+   "task": "RepickStreamW",
+   "episode": 11,
+   "seed": 921100,
+   "difficulty": "hard"
+  },
+  {
+   "task": "RepickStreamW",
+   "episode": 12,
+   "seed": 921200,
+   "difficulty": "easy"
+  },
+  {
+   "task": "RepickStreamW",
+   "episode": 13,
+   "seed": 921300,
+   "difficulty": "medium"
+  },
+  {
+   "task": "RepickStreamW",
+   "episode": 14,
+   "seed": 921400,
+   "difficulty": "hard"
+  },
+  {
+   "task": "RepickStreamW",
+   "episode": 15,
+   "seed": 921500,
+   "difficulty": "easy"
+  },
+  {
+   "task": "RepickStreamW",
+   "episode": 16,
+   "seed": 921600,
+   "difficulty": "medium"
+  },
+  {
+   "task": "RepickStreamW",
+   "episode": 17,
+   "seed": 921700,
+   "difficulty": "hard"
+  },
+  {
+   "task": "RepickStreamW",
+   "episode": 18,
+   "seed": 921800,
+   "difficulty": "easy"
+  },
+  {
+   "task": "RepickStreamW",
+   "episode": 19,
+   "seed": 921900,
+   "difficulty": "medium"
+  },
+  {
+   "task": "RepickStreamW",
+   "episode": 20,
+   "seed": 922000,
+   "difficulty": "hard"
+  },
+  {
+   "task": "RepickStreamW",
+   "episode": 21,
+   "seed": 922100,
+   "difficulty": "easy"
+  },
+  {
+   "task": "RepickStreamW",
+   "episode": 22,
+   "seed": 922200,
+   "difficulty": "medium"
+  },
+  {
+   "task": "RepickStreamW",
+   "episode": 23,
+   "seed": 922300,
+   "difficulty": "hard"
+  },
+  {
+   "task": "RepickStreamW",
+   "episode": 24,
+   "seed": 922400,
+   "difficulty": "easy"
+  },
+  {
+   "task": "RepickStreamW",
+   "episode": 25,
+   "seed": 922500,
+   "difficulty": "medium"
+  },
+  {
+   "task": "RepickStreamW",
+   "episode": 26,
+   "seed": 922600,
+   "difficulty": "hard"
+  },
+  {
+   "task": "RepickStreamW",
+   "episode": 27,
+   "seed": 922700,
+   "difficulty": "easy"
+  },
+  {
+   "task": "RepickStreamW",
+   "episode": 28,
+   "seed": 922800,
+   "difficulty": "medium"
+  },
+  {
+   "task": "RepickStreamW",
+   "episode": 29,
+   "seed": 922900,
+   "difficulty": "hard"
+  },
+  {
+   "task": "RepickStreamW",
+   "episode": 30,
+   "seed": 923000,
+   "difficulty": "easy"
+  },
+  {
+   "task": "RepickStreamW",
+   "episode": 31,
+   "seed": 923100,
+   "difficulty": "medium"
+  },
+  {
+   "task": "RepickStreamW",
+   "episode": 32,
+   "seed": 923200,
+   "difficulty": "hard"
+  },
+  {
+   "task": "RepickStreamW",
+   "episode": 33,
+   "seed": 923300,
+   "difficulty": "easy"
+  },
+  {
+   "task": "RepickStreamW",
+   "episode": 34,
+   "seed": 923400,
+   "difficulty": "medium"
+  },
+  {
+   "task": "RepickStreamW",
+   "episode": 35,
+   "seed": 923500,
+   "difficulty": "hard"
+  },
+  {
+   "task": "RepickStreamW",
+   "episode": 36,
+   "seed": 923600,
+   "difficulty": "easy"
+  },
+  {
+   "task": "RepickStreamW",
+   "episode": 37,
+   "seed": 923700,
+   "difficulty": "medium"
+  },
+  {
+   "task": "RepickStreamW",
+   "episode": 38,
+   "seed": 923800,
+   "difficulty": "hard"
+  },
+  {
+   "task": "RepickStreamW",
+   "episode": 39,
+   "seed": 923900,
+   "difficulty": "easy"
+  },
+  {
+   "task": "RepickStreamW",
+   "episode": 40,
+   "seed": 924000,
+   "difficulty": "medium"
+  },
+  {
+   "task": "RepickStreamW",
+   "episode": 41,
+   "seed": 924100,
+   "difficulty": "hard"
+  },
+  {
+   "task": "RepickStreamW",
+   "episode": 42,
+   "seed": 924200,
+   "difficulty": "easy"
+  },
+  {
+   "task": "RepickStreamW",
+   "episode": 43,
+   "seed": 924300,
+   "difficulty": "medium"
+  },
+  {
+   "task": "RepickStreamW",
+   "episode": 44,
+   "seed": 924400,
+   "difficulty": "hard"
+  },
+  {
+   "task": "RepickStreamW",
+   "episode": 45,
+   "seed": 924500,
+   "difficulty": "easy"
+  },
+  {
+   "task": "RepickStreamW",
+   "episode": 46,
+   "seed": 924600,
+   "difficulty": "medium"
+  },
+  {
+   "task": "RepickStreamW",
+   "episode": 47,
+   "seed": 924700,
+   "difficulty": "hard"
+  },
+  {
+   "task": "RepickStreamW",
+   "episode": 48,
+   "seed": 924800,
+   "difficulty": "easy"
+  },
+  {
+   "task": "RepickStreamW",
+   "episode": 49,
+   "seed": 924900,
+   "difficulty": "medium"
+  },
+  {
+   "task": "RepickStreamW",
+   "episode": 50,
+   "seed": 925000,
+   "difficulty": "hard"
+  },
+  {
+   "task": "RepickStreamW",
+   "episode": 51,
+   "seed": 925100,
+   "difficulty": "easy"
+  },
+  {
+   "task": "RepickStreamW",
+   "episode": 52,
+   "seed": 925200,
+   "difficulty": "medium"
+  },
+  {
+   "task": "RepickStreamW",
+   "episode": 53,
+   "seed": 925300,
+   "difficulty": "hard"
+  },
+  {
+   "task": "RepickStreamW",
+   "episode": 54,
+   "seed": 925400,
+   "difficulty": "easy"
+  },
+  {
+   "task": "RepickStreamW",
+   "episode": 55,
+   "seed": 925500,
+   "difficulty": "medium"
+  },
+  {
+   "task": "RepickStreamW",
+   "episode": 56,
+   "seed": 925600,
+   "difficulty": "hard"
+  },
+  {
+   "task": "RepickStreamW",
+   "episode": 57,
+   "seed": 925700,
+   "difficulty": "easy"
+  },
+  {
+   "task": "RepickStreamW",
+   "episode": 58,
+   "seed": 925800,
+   "difficulty": "medium"
+  },
+  {
+   "task": "RepickStreamW",
+   "episode": 59,
+   "seed": 925900,
+   "difficulty": "hard"
+  },
+  {
+   "task": "RepickStreamW",
+   "episode": 60,
+   "seed": 926000,
+   "difficulty": "easy"
+  },
+  {
+   "task": "RepickStreamW",
+   "episode": 61,
+   "seed": 926100,
+   "difficulty": "medium"
+  },
+  {
+   "task": "RepickStreamW",
+   "episode": 62,
+   "seed": 926200,
+   "difficulty": "hard"
+  },
+  {
+   "task": "RepickStreamW",
+   "episode": 63,
+   "seed": 926300,
+   "difficulty": "easy"
+  },
+  {
+   "task": "RepickStreamW",
+   "episode": 64,
+   "seed": 926400,
+   "difficulty": "medium"
+  },
+  {
+   "task": "RepickStreamW",
+   "episode": 65,
+   "seed": 926500,
+   "difficulty": "hard"
+  },
+  {
+   "task": "RepickStreamW",
+   "episode": 66,
+   "seed": 926600,
+   "difficulty": "easy"
+  },
+  {
+   "task": "RepickStreamW",
+   "episode": 67,
+   "seed": 926700,
+   "difficulty": "medium"
+  },
+  {
+   "task": "RepickStreamW",
+   "episode": 68,
+   "seed": 926800,
+   "difficulty": "hard"
+  },
+  {
+   "task": "RepickStreamW",
+   "episode": 69,
+   "seed": 926900,
+   "difficulty": "easy"
+  },
+  {
+   "task": "RepickStreamW",
+   "episode": 70,
+   "seed": 927000,
+   "difficulty": "medium"
+  },
+  {
+   "task": "RepickStreamW",
+   "episode": 71,
+   "seed": 927100,
+   "difficulty": "hard"
+  },
+  {
+   "task": "RepickStreamW",
+   "episode": 72,
+   "seed": 927200,
+   "difficulty": "easy"
+  },
+  {
+   "task": "RepickStreamW",
+   "episode": 73,
+   "seed": 927300,
+   "difficulty": "medium"
+  },
+  {
+   "task": "RepickStreamW",
+   "episode": 74,
+   "seed": 927400,
+   "difficulty": "hard"
+  },
+  {
+   "task": "RepickStreamW",
+   "episode": 75,
+   "seed": 927500,
+   "difficulty": "easy"
+  },
+  {
+   "task": "RepickStreamW",
+   "episode": 76,
+   "seed": 927600,
+   "difficulty": "medium"
+  },
+  {
+   "task": "RepickStreamW",
+   "episode": 77,
+   "seed": 927700,
+   "difficulty": "hard"
+  },
+  {
+   "task": "RepickStreamW",
+   "episode": 78,
+   "seed": 927800,
+   "difficulty": "easy"
+  },
+  {
+   "task": "RepickStreamW",
+   "episode": 79,
+   "seed": 927900,
+   "difficulty": "medium"
+  }
+ ]
+}

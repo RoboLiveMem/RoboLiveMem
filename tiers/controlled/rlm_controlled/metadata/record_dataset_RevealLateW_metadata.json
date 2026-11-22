@@ -1,0 +1,306 @@
+{
+ "env_id": "RevealLateW",
+ "record_count": 50,
+ "records": [
+  {
+   "task": "RevealLateW",
+   "episode": 0,
+   "seed": 910000,
+   "difficulty": "easy"
+  },
+  {
+   "task": "RevealLateW",
+   "episode": 1,
+   "seed": 910100,
+   "difficulty": "medium"
+  },
+  {
+   "task": "RevealLateW",
+   "episode": 2,
+   "seed": 910200,
+   "difficulty": "hard"
+  },
+  {
+   "task": "RevealLateW",
+   "episode": 3,
+   "seed": 910300,
+   "difficulty": "easy"
+  },
+  {
+   "task": "RevealLateW",
+   "episode": 4,
+   "seed": 910400,
+   "difficulty": "medium"
+  },
+  {
+   "task": "RevealLateW",
+   "episode": 5,
+   "seed": 910500,
+   "difficulty": "hard"
+  },
+  {
+   "task": "RevealLateW",
+   "episode": 6,
+   "seed": 910600,
+   "difficulty": "easy"
+  },
+  {
+   "task": "RevealLateW",
+   "episode": 7,
+   "seed": 910700,
+   "difficulty": "medium"
+  },
+  {
+   "task": "RevealLateW",
+   "episode": 8,
+   "seed": 910800,
+   "difficulty": "hard"
+  },
+  {
+   "task": "RevealLateW",
+   "episode": 9,
+   "seed": 910900,
+   "difficulty": "easy"
+  },
+  {
+   "task": "RevealLateW",
+   "episode": 10,
+   "seed": 911000,
+   "difficulty": "medium"
+  },
+  {
+   "task": "RevealLateW",
+   "episode": 11,
+   "seed": 911100,
+   "difficulty": "hard"
+  },
+  {
+   "task": "RevealLateW",
+   "episode": 12,
+   "seed": 911200,
+   "difficulty": "easy"
+  },
+  {
+   "task": "RevealLateW",
+   "episode": 13,
+   "seed": 911300,
+   "difficulty": "medium"
+  },
+  {
+   "task": "RevealLateW",
+   "episode": 14,
+   "seed": 911400,
+   "difficulty": "hard"
+  },
+  {
+   "task": "RevealLateW",
+   "episode": 15,
+   "seed": 911500,
+   "difficulty": "easy"
+  },
+  {
+   "task": "RevealLateW",
+   "episode": 16,
+   "seed": 911600,
+   "difficulty": "medium"
+  },
+  {
+   "task": "RevealLateW",
+   "episode": 17,
+   "seed": 911700,
+   "difficulty": "hard"
+  },
+  {
+   "task": "RevealLateW",
+   "episode": 18,
+   "seed": 911800,
+   "difficulty": "easy"
+  },
+  {
+   "task": "RevealLateW",
+   "episode": 19,
+   "seed": 911900,
+   "difficulty": "medium"
+  },
+  {
+   "task": "RevealLateW",
+   "episode": 20,
+   "seed": 912000,
+   "difficulty": "hard"
+  },
+  {
+   "task": "RevealLateW",
+   "episode": 21,
+   "seed": 912100,
+   "difficulty": "easy"
+  },
+  {
+   "task": "RevealLateW",
+   "episode": 22,
+   "seed": 912200,
+   "difficulty": "medium"
+  },
+  {
+   "task": "RevealLateW",
+   "episode": 23,
+   "seed": 912300,
+   "difficulty": "hard"
+  },
+  {
+   "task": "RevealLateW",
+   "episode": 24,
+   "seed": 912400,
+   "difficulty": "easy"
+  },
+  {
+   "task": "RevealLateW",
+   "episode": 25,
+   "seed": 912500,
+   "difficulty": "medium"
+  },
+  {
+   "task": "RevealLateW",
+   "episode": 26,
+   "seed": 912600,
+   "difficulty": "hard"
+  },
+  {
+   "task": "RevealLateW",
+   "episode": 27,
+   "seed": 912700,
+   "difficulty": "easy"
+  },
+  {
+   "task": "RevealLateW",
+   "episode": 28,
+   "seed": 912800,
+   "difficulty": "medium"
+  },
+  {
+   "task": "RevealLateW",
+   "episode": 29,
+   "seed": 912900,
+   "difficulty": "hard"
+  },
+  {
+   "task": "RevealLateW",
+   "episode": 30,
+   "seed": 913000,
+   "difficulty": "easy"
+  },
+  {
+   "task": "RevealLateW",
+   "episode": 31,
+   "seed": 913100,
+   "difficulty": "medium"
+  },
+  {
+   "task": "RevealLateW",
+   "episode": 32,
+   "seed": 913200,
+   "difficulty": "hard"
+  },
+  {
+   "task": "RevealLateW",
+   "episode": 33,
+   "seed": 913300,
+   "difficulty": "easy"
+  },
+  {
+   "task": "RevealLateW",
+   "episode": 34,
+   "seed": 913400,
+   "difficulty": "medium"
+  },
+  {
+   "task": "RevealLateW",
+   "episode": 35,
+   "seed": 913500,
+   "difficulty": "hard"
+  },
+  {
+   "task": "RevealLateW",
+   "episode": 36,
+   "seed": 913600,
+   "difficulty": "easy"
+  },
+  {
+   "task": "RevealLateW",
+   "episode": 37,
+   "seed": 913700,
+   "difficulty": "medium"
+  },
+  {
+   "task": "RevealLateW",
+   "episode": 38,
+   "seed": 913800,
+   "difficulty": "hard"
+  },
+  {
+   "task": "RevealLateW",
+   "episode": 39,
+   "seed": 913900,
+   "difficulty": "easy"
+  },
+  {
+   "task": "RevealLateW",
+   "episode": 40,
+   "seed": 914000,
+   "difficulty": "medium"
+  },
+  {
+   "task": "RevealLateW",
+   "episode": 41,
+   "seed": 914100,
+   "difficulty": "hard"
+  },
+  {
+   "task": "RevealLateW",
+   "episode": 42,
+   "seed": 914200,
+   "difficulty": "easy"
+  },
+  {
+   "task": "RevealLateW",
+   "episode": 43,
+   "seed": 914300,
+   "difficulty": "medium"
+  },
+  {
+   "task": "RevealLateW",
+   "episode": 44,
+   "seed": 914400,
+   "difficulty": "hard"
+  },
+  {
+   "task": "RevealLateW",
+   "episode": 45,
+   "seed": 914500,
+   "difficulty": "easy"
+  },
+  {
+   "task": "RevealLateW",
+   "episode": 46,
+   "seed": 914600,
+   "difficulty": "medium"
+  },
+  {
+   "task": "RevealLateW",
+   "episode": 47,
+   "seed": 914700,
+   "difficulty": "hard"
+  },
+  {
+   "task": "RevealLateW",
+   "episode": 48,
+   "seed": 914800,
+   "difficulty": "easy"
+  },
+  {
+   "task": "RevealLateW",
+   "episode": 49,
+   "seed": 914900,
+   "difficulty": "medium"
+  }
+ ]
+}

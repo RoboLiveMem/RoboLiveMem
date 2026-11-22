@@ -1,0 +1,9 @@
+{
+ "title": "S10 \u00b7 Cloche pass (restaurant, expo robot)",
+ "task": "Task: put the vegetarian plate (at mark 1 when the agent starts thinking) on table 4's tray.",
+ "change": "While it thinks, the expo robot regroups the plates under identical cloches.",
+ "events": {
+  "expo_start": "the expo robot starts regrouping plates",
+  "expo_moved": "the expo robot moved a covered plate"
+ }
+}

@@ -1,0 +1,306 @@
+{
+ "env_id": "InterruptSwapWorld",
+ "record_count": 50,
+ "records": [
+  {
+   "task": "InterruptSwapWorld",
+   "episode": 0,
+   "seed": 940000,
+   "difficulty": "easy"
+  },
+  {
+   "task": "InterruptSwapWorld",
+   "episode": 1,
+   "seed": 940100,
+   "difficulty": "medium"
+  },
+  {
+   "task": "InterruptSwapWorld",
+   "episode": 2,
+   "seed": 940200,
+   "difficulty": "hard"
+  },
+  {
+   "task": "InterruptSwapWorld",
+   "episode": 3,
+   "seed": 940300,
+   "difficulty": "easy"
+  },
+  {
+   "task": "InterruptSwapWorld",
+   "episode": 4,
+   "seed": 940400,
+   "difficulty": "medium"
+  },
+  {
+   "task": "InterruptSwapWorld",
+   "episode": 5,
+   "seed": 940500,
+   "difficulty": "hard"
+  },
+  {
+   "task": "InterruptSwapWorld",
+   "episode": 6,
+   "seed": 940600,
+   "difficulty": "easy"
+  },
+  {
+   "task": "InterruptSwapWorld",
+   "episode": 7,
+   "seed": 940700,
+   "difficulty": "medium"
+  },
+  {
+   "task": "InterruptSwapWorld",
+   "episode": 8,
+   "seed": 940800,
+   "difficulty": "hard"
+  },
+  {
+   "task": "InterruptSwapWorld",
+   "episode": 9,
+   "seed": 940900,
+   "difficulty": "easy"
+  },
+  {
+   "task": "InterruptSwapWorld",
+   "episode": 10,
+   "seed": 941000,
+   "difficulty": "medium"
+  },
+  {
+   "task": "InterruptSwapWorld",
+   "episode": 11,
+   "seed": 941100,
+   "difficulty": "hard"
+  },
+  {
+   "task": "InterruptSwapWorld",
+   "episode": 12,
+   "seed": 941200,
+   "difficulty": "easy"
+  },
+  {
+   "task": "InterruptSwapWorld",
+   "episode": 13,
+   "seed": 941300,
+   "difficulty": "medium"
+  },
+  {
+   "task": "InterruptSwapWorld",
+   "episode": 14,
+   "seed": 941400,
+   "difficulty": "hard"
+  },
+  {
+   "task": "InterruptSwapWorld",
+   "episode": 15,
+   "seed": 941500,
+   "difficulty": "easy"
+  },
+  {
+   "task": "InterruptSwapWorld",
+   "episode": 16,
+   "seed": 941600,
+   "difficulty": "medium"
+  },
+  {
+   "task": "InterruptSwapWorld",
+   "episode": 17,
+   "seed": 941700,
+   "difficulty": "hard"
+  },
+  {
+   "task": "InterruptSwapWorld",
+   "episode": 18,
+   "seed": 941800,
+   "difficulty": "easy"
+  },
+  {
+   "task": "InterruptSwapWorld",
+   "episode": 19,
+   "seed": 941900,
+   "difficulty": "medium"
+  },
+  {
+   "task": "InterruptSwapWorld",
+   "episode": 20,
+   "seed": 942000,
+   "difficulty": "hard"
+  },
+  {
+   "task": "InterruptSwapWorld",
+   "episode": 21,
+   "seed": 942100,
+   "difficulty": "easy"
+  },
+  {
+   "task": "InterruptSwapWorld",
+   "episode": 22,
+   "seed": 942200,
+   "difficulty": "medium"
+  },
+  {
+   "task": "InterruptSwapWorld",
+   "episode": 23,
+   "seed": 942300,
+   "difficulty": "hard"
+  },
+  {
+   "task": "InterruptSwapWorld",
+   "episode": 24,
+   "seed": 942400,
+   "difficulty": "easy"
+  },
+  {
+   "task": "InterruptSwapWorld",
+   "episode": 25,
+   "seed": 942500,
+   "difficulty": "medium"
+  },
+  {
+   "task": "InterruptSwapWorld",
+   "episode": 26,
+   "seed": 942600,
+   "difficulty": "hard"
+  },
+  {
+   "task": "InterruptSwapWorld",
+   "episode": 27,
+   "seed": 942700,
+   "difficulty": "easy"
+  },
+  {
+   "task": "InterruptSwapWorld",
+   "episode": 28,
+   "seed": 942800,
+   "difficulty": "medium"
+  },
+  {
+   "task": "InterruptSwapWorld",
+   "episode": 29,
+   "seed": 942900,
+   "difficulty": "hard"
+  },
+  {
+   "task": "InterruptSwapWorld",
+   "episode": 30,
+   "seed": 943000,
+   "difficulty": "easy"
+  },
+  {
+   "task": "InterruptSwapWorld",
+   "episode": 31,
+   "seed": 943100,
+   "difficulty": "medium"
+  },
+  {
+   "task": "InterruptSwapWorld",
+   "episode": 32,
+   "seed": 943200,
+   "difficulty": "hard"
+  },
+  {
+   "task": "InterruptSwapWorld",
+   "episode": 33,
+   "seed": 943300,
+   "difficulty": "easy"
+  },
+  {
+   "task": "InterruptSwapWorld",
+   "episode": 34,
+   "seed": 943400,
+   "difficulty": "medium"
+  },
+  {
+   "task": "InterruptSwapWorld",
+   "episode": 35,
+   "seed": 943500,
+   "difficulty": "hard"
+  },
+  {
+   "task": "InterruptSwapWorld",
+   "episode": 36,
+   "seed": 943600,
+   "difficulty": "easy"
+  },
+  {
+   "task": "InterruptSwapWorld",
+   "episode": 37,
+   "seed": 943700,
+   "difficulty": "medium"
+  },
+  {
+   "task": "InterruptSwapWorld",
+   "episode": 38,
+   "seed": 943800,
+   "difficulty": "hard"
+  },
+  {
+   "task": "InterruptSwapWorld",
+   "episode": 39,
+   "seed": 943900,
+   "difficulty": "easy"
+  },
+  {
+   "task": "InterruptSwapWorld",
+   "episode": 40,
+   "seed": 944000,
+   "difficulty": "medium"
+  },
+  {
+   "task": "InterruptSwapWorld",
+   "episode": 41,
+   "seed": 944100,
+   "difficulty": "hard"
+  },
+  {
+   "task": "InterruptSwapWorld",
+   "episode": 42,
+   "seed": 944200,
+   "difficulty": "easy"
+  },
+  {
+   "task": "InterruptSwapWorld",
+   "episode": 43,
+   "seed": 944300,
+   "difficulty": "medium"
+  },
+  {
+   "task": "InterruptSwapWorld",
+   "episode": 44,
+   "seed": 944400,
+   "difficulty": "hard"
+  },
+  {
+   "task": "InterruptSwapWorld",
+   "episode": 45,
+   "seed": 944500,
+   "difficulty": "easy"
+  },
+  {
+   "task": "InterruptSwapWorld",
+   "episode": 46,
+   "seed": 944600,
+   "difficulty": "medium"
+  },
+  {
+   "task": "InterruptSwapWorld",
+   "episode": 47,
+   "seed": 944700,
+   "difficulty": "hard"
+  },
+  {
+   "task": "InterruptSwapWorld",
+   "episode": 48,
+   "seed": 944800,
+   "difficulty": "easy"
+  },
+  {
+   "task": "InterruptSwapWorld",
+   "episode": 49,
+   "seed": 944900,
+   "difficulty": "medium"
+  }
+ ]
+}

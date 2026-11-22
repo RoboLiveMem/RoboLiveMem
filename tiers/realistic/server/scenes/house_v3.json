@@ -1,0 +1,80 @@
+{
+ "scene": "house_single_floor",
+ "load_room_instances": [
+  "kitchen_0",
+  "dining_room_0",
+  "living_room_1",
+  "entryway_0"
+ ],
+ "skip_categories": [
+  "straight_chair",
+  "taboret"
+ ],
+ "robots": [
+  {
+   "type": "R1",
+   "name": "robot",
+   "obs_modalities": [
+    "rgb"
+   ],
+   "position": [
+    6.5,
+    1.6,
+    0.0
+   ],
+   "orientation": [
+    0,
+    0,
+    0.0,
+    1.0
+   ],
+   "sensor_config": {
+    "VisionSensor": {
+     "sensor_kwargs": {
+      "image_height": 720,
+      "image_width": 720
+     }
+    }
+   }
+  }
+ ],
+ "models": {
+  "mug": "fapsrj",
+  "chopping_board": "akgegh",
+  "tray": "avotsj",
+  "stockpot": "dcleem",
+  "salt_shaker": "iomwtn",
+  "pepper_grinder": "tfoogy",
+  "apple": "agveuv",
+  "fruit_bowl": "byzaxy",
+  "soccer_ball": "ikagkc",
+  "toy_box": "qgfbdj",
+  "tote": "bnkjle",
+  "package": "mvvnqm",
+  "cloche": "gkimtn",
+  "plate": "aewthq"
+ },
+ "anchors": {
+  "v3_sugar": {
+   "base": [
+    5.03,
+    3.5,
+    0.0
+   ]
+  },
+  "v3_mugs": {
+   "base": [
+    5.03,
+    3.5,
+    0.0
+   ]
+  },
+  "v3_keys": {
+   "base": [
+    4.99,
+    0.28,
+    0.0
+   ]
+  }
+ }
+}

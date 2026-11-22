@@ -1,0 +1,8 @@
+{
+ "title": "S05 \u00b7 Rotary reject (factory cell, indexing table)",
+ "task": "Task: put the part flagged by the red inspection lamp into the reject bin, and nothing else.",
+ "change": "While it thinks, the table indexes several steps. The lamp goes dark and all six parts look the same.",
+ "events": {
+  "index_start": "the indexing table rotates one step"
+ }
+}

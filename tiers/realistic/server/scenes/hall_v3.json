@@ -1,0 +1,87 @@
+{
+ "scene": "grocery_store_half_stocked",
+ "load_room_instances": [
+  "grocery_store_0"
+ ],
+ "skip_categories": [
+  "grocery_shelf",
+  "shelf",
+  "snack_rack",
+  "cash_register",
+  "countertop"
+ ],
+ "robots": [
+  {
+   "type": "R1",
+   "name": "robot",
+   "obs_modalities": [
+    "rgb"
+   ],
+   "position": [
+    5.0,
+    -2.0,
+    0.0
+   ],
+   "orientation": [
+    0,
+    0,
+    0.0,
+    1.0
+   ],
+   "sensor_config": {
+    "VisionSensor": {
+     "sensor_kwargs": {
+      "image_height": 720,
+      "image_width": 720
+     }
+    }
+   }
+  }
+ ],
+ "models": {
+  "mug": "fapsrj",
+  "chopping_board": "akgegh",
+  "tray": "avotsj",
+  "stockpot": "dcleem",
+  "salt_shaker": "iomwtn",
+  "pepper_grinder": "tfoogy",
+  "apple": "agveuv",
+  "fruit_bowl": "byzaxy",
+  "soccer_ball": "ikagkc",
+  "toy_box": "qgfbdj",
+  "tote": "bnkjle",
+  "package": "mvvnqm",
+  "cloche": "gkimtn",
+  "plate": "aewthq"
+ },
+ "anchors": {
+  "v3_cell": {
+   "base": [
+    0.6,
+    -1.6,
+    -1.5707963267948966
+   ]
+  },
+  "v3_totes": {
+   "base": [
+    4.4,
+    -1.6,
+    -1.5707963267948966
+   ]
+  },
+  "v3_bins": {
+   "base": [
+    8.2,
+    -1.6,
+    -1.5707963267948966
+   ]
+  },
+  "v3_reagent": {
+   "base": [
+    4.4,
+    2.1,
+    -1.5707963267948966
+   ]
+  }
+ }
+}

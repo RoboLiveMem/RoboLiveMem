@@ -1,0 +1,194 @@
+{
+ "mugs|hidden|event": [
+  1.92,
+  1.92
+ ],
+ "mugs|visible|event": [
+  1.92,
+  1.92
+ ],
+ "mugs|hidden|lookalike": [
+  1.92,
+  1.92
+ ],
+ "mugs|visible|lookalike": [
+  1.92,
+  1.92
+ ],
+ "mugs|hidden|null": [
+  1.92,
+  1.92
+ ],
+ "mugs|visible|null": [
+  1.92,
+  1.92
+ ],
+ "knife|hidden|event": [
+  2.42,
+  2.42
+ ],
+ "knife|visible|event": [
+  2.42,
+  2.42
+ ],
+ "knife|hidden|lookalike": [
+  1.92,
+  1.92
+ ],
+ "knife|visible|lookalike": [
+  1.92,
+  1.92
+ ],
+ "knife|hidden|null": [
+  1.92,
+  1.92
+ ],
+ "knife|visible|null": [
+  1.92,
+  1.92
+ ],
+ "apple|hidden|event": [
+  1.9,
+  1.9
+ ],
+ "apple|visible|event": [
+  1.9,
+  1.9
+ ],
+ "apple|hidden|lookalike": [
+  1.9,
+  1.9
+ ],
+ "apple|visible|lookalike": [
+  1.9,
+  1.9
+ ],
+ "apple|hidden|null": [
+  1.9,
+  1.9
+ ],
+ "apple|visible|null": [
+  1.9,
+  1.9
+ ],
+ "point|hidden|event": [
+  1.76,
+  1.76
+ ],
+ "point|visible|event": [
+  25.96,
+  25.04
+ ],
+ "point|hidden|lookalike": [
+  1.76,
+  1.76
+ ],
+ "point|visible|lookalike": [
+  1.76,
+  1.76
+ ],
+ "point|hidden|null": [
+  1.92,
+  1.92
+ ],
+ "point|visible|null": [
+  1.92,
+  1.92
+ ],
+ "heat|hidden|event": [
+  2.8,
+  2.8
+ ],
+ "heat|visible|event": [
+  2.8,
+  2.8
+ ],
+ "heat|hidden|lookalike": [
+  2.8,
+  2.8
+ ],
+ "heat|visible|lookalike": [
+  2.8,
+  2.8
+ ],
+ "heat|hidden|null": [
+  1.9,
+  1.9
+ ],
+ "heat|visible|null": [
+  1.9,
+  1.9
+ ],
+ "heatw|hidden|event": [
+  2.82,
+  2.82
+ ],
+ "heatw|visible|event": [
+  2.82,
+  2.82
+ ],
+ "heatw|hidden|lookalike": [
+  2.82,
+  2.82
+ ],
+ "heatw|visible|lookalike": [
+  2.82,
+  2.82
+ ],
+ "heatw|hidden|null": [
+  1.92,
+  1.92
+ ],
+ "heatw|visible|null": [
+  1.92,
+  1.92
+ ],
+ "heatdur|hidden|event": [
+  5.12,
+  5.12
+ ],
+ "heatdur|visible|event": [
+  5.12,
+  5.12
+ ],
+ "heatdur|hidden|lookalike": [
+  2.12,
+  2.12
+ ],
+ "heatdur|visible|lookalike": [
+  2.12,
+  2.12
+ ],
+ "heatdur|hidden|null": [
+  1.92,
+  1.92
+ ],
+ "heatdur|visible|null": [
+  1.92,
+  1.92
+ ],
+ "sugar2|hidden|event": [
+  4.02,
+  4.02
+ ],
+ "sugar2|visible|event": [
+  4.02,
+  4.02
+ ],
+ "sugar2|hidden|lookalike": [
+  2.02,
+  2.02
+ ],
+ "sugar2|visible|lookalike": [
+  2.02,
+  2.02
+ ],
+ "sugar2|hidden|null": [
+  1.92,
+  1.92
+ ],
+ "sugar2|visible|null": [
+  1.92,
+  1.92
+ ]
+}

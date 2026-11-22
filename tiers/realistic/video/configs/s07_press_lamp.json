@@ -1,0 +1,9 @@
+{
+ "title": "S07 \u00b7 Press ready lamp (factory cell, transient cue)",
+ "task": "Task: unload the part after the curing cycle ends, within 90 s. The only sign is the READY lamp, which lights for 6 s.",
+ "change": "While it thinks, the cycle ends and the lamp blinks. Afterwards the press looks exactly as before.",
+ "events": {
+  "lamp_on": "the READY lamp lights up (for 6 s)",
+  "lamp_off": "the lamp goes dark again"
+ }
+}

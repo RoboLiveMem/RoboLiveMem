@@ -1,0 +1,100 @@
+{
+ "scene": "grocery_store_half_stocked",
+ "load_room_instances": [
+  "grocery_store_0"
+ ],
+ "skip_categories": [
+  "grocery_shelf",
+  "shelf",
+  "snack_rack",
+  "cash_register",
+  "countertop"
+ ],
+ "robots": [
+  {
+   "type": "R1",
+   "name": "robot",
+   "obs_modalities": [
+    "rgb"
+   ],
+   "position": [
+    5.0,
+    -2.0,
+    0.0
+   ],
+   "orientation": [
+    0,
+    0,
+    0.0,
+    1.0
+   ],
+   "sensor_config": {
+    "VisionSensor": {
+     "sensor_kwargs": {
+      "image_height": 720,
+      "image_width": 720
+     }
+    }
+   }
+  },
+  {
+   "model": "r1pro",
+   "name": "helper",
+   "obs_modalities": [],
+   "position": [
+    5.0,
+    2.0,
+    0.0
+   ],
+   "orientation": [
+    0,
+    0,
+    0.0,
+    1.0
+   ]
+  }
+ ],
+ "models": {
+  "mug": "fapsrj",
+  "chopping_board": "akgegh",
+  "tray": "avotsj",
+  "stockpot": "dcleem",
+  "salt_shaker": "iomwtn",
+  "pepper_grinder": "tfoogy",
+  "apple": "agveuv",
+  "fruit_bowl": "byzaxy",
+  "soccer_ball": "ikagkc",
+  "toy_box": "qgfbdj",
+  "tote": "bnkjle",
+  "package": "mvvnqm",
+  "cloche": "gkimtn",
+  "plate": "aewthq"
+ },
+ "anchors": {
+  "s05": [
+   1.0,
+   -4.2,
+   -1.5707963267948966
+  ],
+  "s06": [
+   5.0,
+   -4.0,
+   -1.5707963267948966
+  ],
+  "s07": [
+   9.0,
+   -4.0,
+   -1.5707963267948966
+  ],
+  "s08": [
+   2.6,
+   0.3,
+   1.5707963267948966
+  ],
+  "s09": [
+   7.2,
+   0.3,
+   1.5707963267948966
+  ]
+ }
+}

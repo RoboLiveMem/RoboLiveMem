@@ -1,0 +1,92 @@
+{
+ "scene": "restaurant_diner",
+ "load_room_instances": [
+  "kitchen_0"
+ ],
+ "skip_categories": [],
+ "robots": [
+  {
+   "type": "R1",
+   "name": "robot",
+   "obs_modalities": [
+    "rgb"
+   ],
+   "position": [
+    -7.0,
+    -1.0,
+    0.0
+   ],
+   "orientation": [
+    0,
+    0,
+    0.0,
+    1.0
+   ],
+   "sensor_config": {
+    "VisionSensor": {
+     "sensor_kwargs": {
+      "image_height": 720,
+      "image_width": 720
+     }
+    }
+   }
+  },
+  {
+   "model": "r1pro",
+   "name": "helper",
+   "obs_modalities": [],
+   "position": [
+    -7.0,
+    0.0,
+    0.0
+   ],
+   "orientation": [
+    0,
+    0,
+    0.0,
+    1.0
+   ]
+  }
+ ],
+ "models": {
+  "mug": "fapsrj",
+  "chopping_board": "akgegh",
+  "tray": "avotsj",
+  "stockpot": "dcleem",
+  "salt_shaker": "iomwtn",
+  "pepper_grinder": "tfoogy",
+  "apple": "agveuv",
+  "fruit_bowl": "byzaxy",
+  "soccer_ball": "ikagkc",
+  "toy_box": "qgfbdj",
+  "tote": "bnkjle",
+  "package": "mvvnqm",
+  "cloche": "gkimtn",
+  "plate": "aewthq"
+ },
+ "anchors": {
+  "s10": {
+   "base": [
+    -8.482,
+    -3.6,
+    3.141592653589793
+   ],
+   "d": 0.4,
+   "h": 0.871,
+   "depth": 0.805,
+   "cam": [
+    [
+     -7.55,
+     -1.75,
+     2.05
+    ],
+    [
+     -9.35,
+     -3.65,
+     0.9
+    ],
+    15.0
+   ]
+  }
+ }
+}

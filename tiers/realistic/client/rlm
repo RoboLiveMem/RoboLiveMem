@@ -1,0 +1,116 @@
+#!/usr/bin/env python3
+"""rlm - command-line robot client for RoboLiveMem-Bench (Python standard library only).
+
+  rlm spec                      task instruction, skills, numbered marks, budget, clock
+  rlm obs                       observe: saves the current camera view and the stream of frames
+                                recorded since your previous request; prints a summary
+  rlm act <skill> [target]      run a skill, e.g.  rlm act pick 2   rlm act place 4   rlm act open 3
+  rlm wait <seconds>            let the world run (0.5 to 60 s); the robot holds still
+  rlm frames <t_from> <t_to>    contact sheet of recorded camera frames between two world times
+  rlm done                      end the episode
+
+Images are written to ./view/ ; open them with your image viewer (e.g. the Read tool).
+Server: $RLM_URL (default http://127.0.0.1:8701).
+"""
+import base64, json, os, sys, urllib.request
+from pathlib import Path
+
+URL = os.environ.get("RLM_URL", "http://127.0.0.1:8701")
+VIEW = Path(os.environ.get("RLM_VIEW", "view"))
+
+
+def call(path, body=None):
+    data = json.dumps(body or {}).encode()
+    req = urllib.request.Request(URL + path, data=data, headers={"Content-Type": "application/json"}, method="POST")
+    with urllib.request.urlopen(req, timeout=1800) as r:
+        return json.loads(r.read())
+
+
+def counter():
+    VIEW.mkdir(exist_ok=True)
+    f = VIEW / ".n"
+    n = int(f.read_text()) + 1 if f.exists() else 1
+    f.write_text(str(n))
+    return n
+
+
+def save(b64, name):
+    p = VIEW / name
+    p.write_bytes(base64.b64decode(b64))
+    return str(p)
+
+
+def show_obs(r, n):
+    if "error" in r:
+        print("ERROR:", r["error"]); return
+    lines = [f"world time: {r['world_time']:.1f} s   clock: {r['clock']}"]
+    if r.get("last_result"):
+        lines.append(f"last result: {r['last_result']}")
+    lines.append(f"holding: {r['holding']}   manipulation actions left: {r['manipulation_actions_left']}")
+    if r.get("episode_over"):
+        lines.append(f"EPISODE OVER ({r.get('over_reason')})")
+    lines.append(f"current view (numbered marks): {save(r['current_view'], f'{n:03d}_now.jpg')}")
+    s = r.get("stream") or {}
+    if s.get("n_frames"):
+        p = save(s["sheet"], f"{n:03d}_stream.jpg")
+        lines.append(f"stream: {s['n_frames']} camera frames recorded since your previous request "
+                     f"(world {s['t_from']:.1f}-{s['t_to']:.1f} s); contact sheet of {len(s['sheet_times'])} of them: {p}")
+        lines.append("        use `rlm frames <t_from> <t_to>` to look at a time window more closely")
+    else:
+        lines.append("stream: no new frames (the world did not move since your previous request)")
+    if r.get("privileged"):
+        lines.append("privileged state: " + json.dumps(r["privileged"]))
+    print("\n".join(lines))
+
+
+def main(argv):
+    if not argv or argv[0] in ("-h", "--help", "help"):
+        print(__doc__); return
+    cmd, rest = argv[0], argv[1:]
+    if cmd == "spec":
+        r = call("/spec")
+        if "error" in r:
+            print("ERROR:", r["error"]); return
+        print(f"SCENARIO: {r['title']}  ({r['setting']})\n")
+        print("TASK:\n" + r["instruction"] + "\n")
+        print("CLOCK: " + r["clock_note"] + "\n")
+        print("SKILLS:")
+        for k, v in r["skills"].items():
+            print(f"  {k}: {v}")
+        print("\nNUMBERED MARKS (fixed places in the camera image):")
+        for k, v in r["marks"].items():
+            print(f"  {k}: {v}")
+        print(f"\nmanipulation actions allowed: {r['manipulation_budget']} (observe, frames and wait are free); "
+              f"world deadline: {r['deadline_world_seconds']:.0f} s")
+        print("\nOBSERVATIONS: " + r["observation"])
+    elif cmd == "obs":
+        show_obs(call("/obs"), counter())
+    elif cmd == "act":
+        if not rest:
+            print("usage: rlm act <skill> [target]"); return
+        body = {"skill": rest[0]}
+        if len(rest) > 1:
+            body["target"] = rest[1]
+        show_obs(call("/act", body), counter())
+    elif cmd == "wait":
+        s = float(rest[0]) if rest else 5.0
+        show_obs(call("/act", {"skill": "wait", "seconds": s}), counter())
+    elif cmd == "done":
+        r = call("/act", {"skill": "done"})
+        print(r.get("last_result", r))
+    elif cmd == "frames":
+        if len(rest) < 2:
+            print("usage: rlm frames <t_from> <t_to>"); return
+        r = call("/frames", {"t_from": float(rest[0]), "t_to": float(rest[1])})
+        if r.get("n_frames"):
+            n = counter()
+            print(f"{r['n_frames']} frames between {rest[0]} and {rest[1]} s; contact sheet: {save(r['sheet'], f'{n:03d}_frames.jpg')} "
+                  f"(times {', '.join(f'{t:.1f}' for t in r['sheet_times'])})")
+        else:
+            print("no recorded frames in that window")
+    else:
+        print(f"unknown command {cmd}\n" + __doc__)
+
+
+if __name__ == "__main__":
+    main(sys.argv[1:])

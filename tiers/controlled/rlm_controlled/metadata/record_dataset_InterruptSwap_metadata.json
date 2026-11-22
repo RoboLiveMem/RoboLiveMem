@@ -1,0 +1,306 @@
+{
+ "env_id": "InterruptSwap",
+ "record_count": 50,
+ "records": [
+  {
+   "task": "InterruptSwap",
+   "episode": 0,
+   "seed": 940000,
+   "difficulty": "easy"
+  },
+  {
+   "task": "InterruptSwap",
+   "episode": 1,
+   "seed": 940100,
+   "difficulty": "medium"
+  },
+  {
+   "task": "InterruptSwap",
+   "episode": 2,
+   "seed": 940200,
+   "difficulty": "hard"
+  },
+  {
+   "task": "InterruptSwap",
+   "episode": 3,
+   "seed": 940300,
+   "difficulty": "easy"
+  },
+  {
+   "task": "InterruptSwap",
+   "episode": 4,
+   "seed": 940400,
+   "difficulty": "medium"
+  },
+  {
+   "task": "InterruptSwap",
+   "episode": 5,
+   "seed": 940500,
+   "difficulty": "hard"
+  },
+  {
+   "task": "InterruptSwap",
+   "episode": 6,
+   "seed": 940600,
+   "difficulty": "easy"
+  },
+  {
+   "task": "InterruptSwap",
+   "episode": 7,
+   "seed": 940700,
+   "difficulty": "medium"
+  },
+  {
+   "task": "InterruptSwap",
+   "episode": 8,
+   "seed": 940800,
+   "difficulty": "hard"
+  },
+  {
+   "task": "InterruptSwap",
+   "episode": 9,
+   "seed": 940900,
+   "difficulty": "easy"
+  },
+  {
+   "task": "InterruptSwap",
+   "episode": 10,
+   "seed": 941000,
+   "difficulty": "medium"
+  },
+  {
+   "task": "InterruptSwap",
+   "episode": 11,
+   "seed": 941100,
+   "difficulty": "hard"
+  },
+  {
+   "task": "InterruptSwap",
+   "episode": 12,
+   "seed": 941200,
+   "difficulty": "easy"
+  },
+  {
+   "task": "InterruptSwap",
+   "episode": 13,
+   "seed": 941300,
+   "difficulty": "medium"
+  },
+  {
+   "task": "InterruptSwap",
+   "episode": 14,
+   "seed": 941400,
+   "difficulty": "hard"
+  },
+  {
+   "task": "InterruptSwap",
+   "episode": 15,
+   "seed": 941500,
+   "difficulty": "easy"
+  },
+  {
+   "task": "InterruptSwap",
+   "episode": 16,
+   "seed": 941600,
+   "difficulty": "medium"
+  },
+  {
+   "task": "InterruptSwap",
+   "episode": 17,
+   "seed": 941700,
+   "difficulty": "hard"
+  },
+  {
+   "task": "InterruptSwap",
+   "episode": 18,
+   "seed": 941800,
+   "difficulty": "easy"
+  },
+  {
+   "task": "InterruptSwap",
+   "episode": 19,
+   "seed": 941900,
+   "difficulty": "medium"
+  },
+  {
+   "task": "InterruptSwap",
+   "episode": 20,
+   "seed": 942000,
+   "difficulty": "hard"
+  },
+  {
+   "task": "InterruptSwap",
+   "episode": 21,
+   "seed": 942100,
+   "difficulty": "easy"
+  },
+  {
+   "task": "InterruptSwap",
+   "episode": 22,
+   "seed": 942200,
+   "difficulty": "medium"
+  },
+  {
+   "task": "InterruptSwap",
+   "episode": 23,
+   "seed": 942300,
+   "difficulty": "hard"
+  },
+  {
+   "task": "InterruptSwap",
+   "episode": 24,
+   "seed": 942400,
+   "difficulty": "easy"
+  },
+  {
+   "task": "InterruptSwap",
+   "episode": 25,
+   "seed": 942500,
+   "difficulty": "medium"
+  },
+  {
+   "task": "InterruptSwap",
+   "episode": 26,
+   "seed": 942600,
+   "difficulty": "hard"
+  },
+  {
+   "task": "InterruptSwap",
+   "episode": 27,
+   "seed": 942700,
+   "difficulty": "easy"
+  },
+  {
+   "task": "InterruptSwap",
+   "episode": 28,
+   "seed": 942800,
+   "difficulty": "medium"
+  },
+  {
+   "task": "InterruptSwap",
+   "episode": 29,
+   "seed": 942900,
+   "difficulty": "hard"
+  },
+  {
+   "task": "InterruptSwap",
+   "episode": 30,
+   "seed": 943000,
+   "difficulty": "easy"
+  },
+  {
+   "task": "InterruptSwap",
+   "episode": 31,
+   "seed": 943100,
+   "difficulty": "medium"
+  },
+  {
+   "task": "InterruptSwap",
+   "episode": 32,
+   "seed": 943200,
+   "difficulty": "hard"
+  },
+  {
+   "task": "InterruptSwap",
+   "episode": 33,
+   "seed": 943300,
+   "difficulty": "easy"
+  },
+  {
+   "task": "InterruptSwap",
+   "episode": 34,
+   "seed": 943400,
+   "difficulty": "medium"
+  },
+  {
+   "task": "InterruptSwap",
+   "episode": 35,
+   "seed": 943500,
+   "difficulty": "hard"
+  },
+  {
+   "task": "InterruptSwap",
+   "episode": 36,
+   "seed": 943600,
+   "difficulty": "easy"
+  },
+  {
+   "task": "InterruptSwap",
+   "episode": 37,
+   "seed": 943700,
+   "difficulty": "medium"
+  },
+  {
+   "task": "InterruptSwap",
+   "episode": 38,
+   "seed": 943800,
+   "difficulty": "hard"
+  },
+  {
+   "task": "InterruptSwap",
+   "episode": 39,
+   "seed": 943900,
+   "difficulty": "easy"
+  },
+  {
+   "task": "InterruptSwap",
+   "episode": 40,
+   "seed": 944000,
+   "difficulty": "medium"
+  },
+  {
+   "task": "InterruptSwap",
+   "episode": 41,
+   "seed": 944100,
+   "difficulty": "hard"
+  },
+  {
+   "task": "InterruptSwap",
+   "episode": 42,
+   "seed": 944200,
+   "difficulty": "easy"
+  },
+  {
+   "task": "InterruptSwap",
+   "episode": 43,
+   "seed": 944300,
+   "difficulty": "medium"
+  },
+  {
+   "task": "InterruptSwap",
+   "episode": 44,
+   "seed": 944400,
+   "difficulty": "hard"
+  },
+  {
+   "task": "InterruptSwap",
+   "episode": 45,
+   "seed": 944500,
+   "difficulty": "easy"
+  },
+  {
+   "task": "InterruptSwap",
+   "episode": 46,
+   "seed": 944600,
+   "difficulty": "medium"
+  },
+  {
+   "task": "InterruptSwap",
+   "episode": 47,
+   "seed": 944700,
+   "difficulty": "hard"
+  },
+  {
+   "task": "InterruptSwap",
+   "episode": 48,
+   "seed": 944800,
+   "difficulty": "easy"
+  },
+  {
+   "task": "InterruptSwap",
+   "episode": 49,
+   "seed": 944900,
+   "difficulty": "medium"
+  }
+ ]
+}
