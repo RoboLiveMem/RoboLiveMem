@@ -51,39 +51,48 @@ A Linux machine with an NVIDIA RTX GPU, Docker, the image `stanfordvl/behavior:3
 
 ## Run
 
+The BEHAVIOR-1K image and assets are not part of this repository: install them yourself, then start one scenario
+server per scene with this folder mounted as `/work`.
+
 ```bash
-# 1. start a scenario server (one per scene), with this folder mounted as /work
 mkdir -p $WORK && cp -r . $WORK/bench
-python3 server/launch.py --root $WORK --assets $BEHAVIOR_ASSETS --gpu 0 --name rlm_house --port 8701 -- \
-  python /work/server/bench_server.py --session /out/house --scene /work/server/scenes/house_v3.json \
+python3 server/launch.py --root $WORK --assets $BEHAVIOR_ASSETS --gpu 0 --name rlm_house_v3 --port 8701 -- \
+  python /work/server/bench_server.py --session /out/house_v3 --scene /work/server/scenes/house_v3.json \
   --scenarios v3_mugs,v3_keys,v3_sugar --port 8701 --code /work/server
+# (one server per scene file; loading takes a few minutes, server_status.json in the session says "ready")
+```
 
-# 2a. any API model (keys from environment variables, see ../../.env.example)
-echo '{"scenario": "v3_mugs", "seed": 0, "clock": "live", "model": "anthropic:claude-sonnet-5-5", "max_tokens": 8192}' > jobs.jsonl
-python3 harness/run_agent_api.py --jobs jobs.jsonl --root $WORK/evals/api --url http://127.0.0.1:8701 \
-  --server-out /out/house/episodes
+Evaluate any agent from the repository root (see ../../PROTOCOL.md). `--env` maps scene files to servers; the tasks of
+the scenes you give are run:
 
-# 2b. Claude Code or Codex as the agent (headless, MCP tools only)
+```bash
+python -m robolivemem.eval --tier realistic --env house_v3=http://127.0.0.1:8701,hall_v3=http://127.0.0.1:8702 \
+    --agent chat:anthropic:claude-sonnet-5-5 --out results/realistic_sonnet.jsonl
+# installation check, no model: the stale reference policy (succeeds paused, fails event seeds live)
+python -m robolivemem.eval --tier realistic --env house=http://127.0.0.1:8703 --tasks s02_annas_mug \
+    --agent tiers/realistic/harness/stale_agent.py:StaleAgent --seeds 0-2 --conditions P,L --out results/check.jsonl
+```
+
+Claude Code or Codex as the agent (headless, MCP tools only), as in the paper:
+
+```bash
+echo '{"scenario": "v3_mugs", "seed": 0, "clock": "live"}' > jobs.jsonl
 python3 harness/run_agent.py --backend claude --model claude-opus-5-5 --jobs jobs.jsonl --root $WORK/evals/agents \
-  --url http://127.0.0.1:8701 --server-out /out/house/episodes --secret <file exporting CLAUDE_CODE_OAUTH_TOKEN>
-# (--backend codex --model <model> --codex-home <CODEX_HOME> for Codex)
-
-# 3. tables
-python3 harness/aggregate.py $WORK
+  --url http://127.0.0.1:8701 --server-out /out/house_v3/episodes --secret <file exporting CLAUDE_CODE_OAUTH_TOKEN>
+# (--backend codex --model <model> --codex-home <CODEX_HOME> for Codex);  tables: python3 harness/aggregate.py $WORK
 ```
 
 A job row is `{"scenario", "seed", "clock": "paused" | "live", "model", "effort", "variant": "" | "visible",
-"harness": "minimal" | "commit"}` (for `run_agent.py` also `"backend": "claude" | "codex"`; the command-line
-`--backend`, `--model` and `--effort` are the defaults). Seeds follow `seed % 3`: event, decoy, null. In the paper, event seeds 0, 3, 6 and 9
-run paused and live, null seeds 2, 5, 8 and 11 run live, visible twins (`"variant": "visible"`) run live, and
-`"harness": "commit"` turns on the commit check.
+"harness": "minimal" | "commit"}` (for `run_agent.py` also `"backend": "claude" | "codex"`). `harness/run_agent_api.py`
+is the paper's minimal API agent (the same tools and prompt; `robolivemem.eval` with `chat:` does the same).
 
 ## Agent protocol
 
 `rlm spec | obs | act <skill> <mark> | wait <s> | frames <t0> <t1> | done`. Every response carries the current
 head-camera view with numbered marks (fixed places) and a contact sheet of the frames recorded since the previous
-request. Under the live clock the model time between a response and the next request is simulated before the request
-is served. The change is due a few seconds after the first observation (drawn from the seed), and a safety interlock refuses manipulation
-while another actor works in the shared workspace (no budget used), so an agent cannot beat the change by answering
-fast: it has to wait and then decide from the recorded frames. Design rules: `DESIGN.md`; 56 further scenario ideas
+request. Under the live clock the time between a response and the next request (measured by the server, or declared
+by the client as `latency`) is simulated before the request is served. The change is due a few seconds after the first
+observation (drawn from the seed), and the robot never reaches into a place another actor is handling: such a command
+first waits until the actor is done, so an agent cannot beat the change by answering fast; it has to notice the change
+in the recorded frames. Design rules: `DESIGN.md`; 56 further scenario ideas
 (text only): `SCENARIOS_TEXT.md`.

@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "robolivemem"
-version = "0.1.0"
+version = "0.2.0"
 description = "RoboLiveMem: is robot memory solved when the world does not wait?"
 readme = "README.md"
 license = {text = "MIT"}

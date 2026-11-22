@@ -1,0 +1,11 @@
+{
+  "realistic": {
+    "house_v3": "http://127.0.0.1:8701",
+    "hall_v3": "http://127.0.0.1:8702",
+    "house": "http://127.0.0.1:8703",
+    "industrial": "http://127.0.0.1:8704",
+    "restaurant": "http://127.0.0.1:8705"
+  },
+  "semi": "http://127.0.0.1:8801",
+  "controlled": "http://127.0.0.1:8802"
+}

@@ -388,6 +388,30 @@ Each turn you get the current camera image and, when there are any, the frames r
 Write at most a few sentences of reasoning, then exactly one JSON command on the last line."""
 
 
+def observation_parts(ep: Episode, obs: Obs, max_frames: int = 12) -> list:
+    """What an agent is shown at one decision: task (first), last result, frames since the last turn, current view."""
+    parts = [ep.task_text()] if obs.first else []
+    if obs.message:
+        parts.append(f"Result of your last command: {obs.message}")
+    fr, ts = obs.new_frames, obs.new_times
+    if len(fr) > 1:
+        idx = np.linspace(0, len(fr) - 1, min(len(fr), max_frames)).round().astype(int)
+        parts += [f"Frames recorded since your previous turn ({ts[0]:.1f}-{ts[-1]:.1f} s):",
+                  contact_sheet([fr[i] for i in idx], [ts[i] for i in idx])]
+    parts += [f"Current view (t = {obs.t:.1f} s):", obs.image]
+    return parts
+
+
+def _int_mark(cmd):
+    cmd = cmd if isinstance(cmd, dict) else {}
+    if "mark" in cmd:
+        try:
+            cmd["mark"] = int(cmd["mark"])
+        except (TypeError, ValueError):
+            pass
+    return cmd
+
+
 class ModelPolicy:
     """Any chat model (robolivemem.models.Chat); latency = the measured time of the model call."""
 
@@ -400,16 +424,7 @@ class ModelPolicy:
     def __call__(self, ep: Episode, obs: Obs):
         if obs.first:
             self.turns = []
-        parts = [ep.task_text()] if obs.first else []
-        if obs.message:
-            parts.append(f"Result of your last command: {obs.message}")
-        fr, ts = obs.new_frames, obs.new_times
-        if len(fr) > 1:
-            idx = np.linspace(0, len(fr) - 1, min(len(fr), self.max_frames)).round().astype(int)
-            parts += [f"Frames recorded since your previous turn ({ts[0]:.1f}-{ts[-1]:.1f} s):",
-                      contact_sheet([fr[i] for i in idx], [ts[i] for i in idx])]
-        parts += [f"Current view (t = {obs.t:.1f} s):", obs.image]
-        self.turns.append(("user", parts))
+        self.turns.append(("user", observation_parts(ep, obs, self.max_frames)))
         # keep the dialogue short: text of earlier turns, images only from the latest one
         turns = [(r, [p for p in ps if isinstance(p, str)]) for r, ps in self.turns[:-1]] + [self.turns[-1]]
         meta = {}
@@ -420,13 +435,43 @@ class ModelPolicy:
         else:
             raise RuntimeError(f"model call failed: {meta.get('error')}")
         self.turns.append(("assistant", [text or "{}"]))
-        cmd = self.parse(text) or {}
-        if "mark" in cmd:
-            try:
-                cmd["mark"] = int(cmd["mark"])
-            except (TypeError, ValueError):
-                pass
-        return cmd, float(meta.get("latency_s", 0.0)), meta
+        return _int_mark(self.parse(text) or {}), float(meta.get("latency_s", 0.0)), meta
+
+
+class RemotePolicy:
+    """The decision is made by a remote agent through the environment protocol (robolivemem.protocol.Bridge)."""
+
+    def __init__(self, ask, max_frames: int = 12):
+        self.ask, self.max_frames, self.turns = ask, max_frames, []
+
+    def __call__(self, ep: Episode, obs: Obs):
+        from .protocol import to_content
+        content = to_content(observation_parts(ep, obs, self.max_frames))
+        self.turns.append(["user", content])
+        dialogue = [[r, [c for c in cs if c["type"] == "text"]] for r, cs in self.turns[:-1]] + [self.turns[-1]]
+        cmd, text, lat, src = self.ask({"system": SYSTEM, "content": content, "dialogue": dialogue,
+                                        "world_time": round(obs.t, 2)})
+        self.turns.append(["assistant", [{"type": "text", "text": text or __import__("json").dumps(cmd)}]])
+        return _int_mark(dict(cmd or {})), lat, {"latency_source": src}
+
+
+def serve_runner(job: dict, ask) -> dict:
+    """One episode for robolivemem.protocol.Bridge (python -m robolivemem.serve)."""
+    from .clock import fixed as fixed_clock
+    from .protocol import parse_clock
+    cond = job.get("condition", "L")
+    name, L = parse_clock("paused" if cond == "P" else job.get("clock", "live"))
+    clock = PAUSED if name == "paused" else (fixed_clock(L) if name == "fixed" else LIVE)
+    ep = Episode(make_instance(int(job["seed"])), cond, clock, commit=bool(job.get("commit")))
+    pol = job.get("policy")
+    policy = Scripted(pol, float(job.get("think", 3.0))) if pol else RemotePolicy(ask)
+    row = ep.run(policy)
+    return {k: row[k] for k in ("success", "status", "variant", "stale", "lead_s", "world_s", "tau_s", "tau_e")}
+
+
+INFO = {"tier": "tabletop", "tasks": ["mug"], "conditions": ["P", "L", "V"], "clocks": ["paused", "live", "fixed:<s>"],
+        "commit": True, "policies": ["privileged", "stale", "assume-change"],
+        "commands": ['{"action": "pick", "mark": n}', '{"action": "wait", "seconds": s}', '{"action": "done"}']}
 
 
 # ---------------------------------------------------------------------- CLI

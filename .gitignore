@@ -16,3 +16,4 @@ obs/
 *.mp4
 .pytest_cache/
 tiers/semi/efe/
+build/

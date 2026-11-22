@@ -88,6 +88,8 @@ def _norm_part(p: Any) -> dict:
     if isinstance(p, str):
         return {"text": p}
     if isinstance(p, dict):
+        if p.get("type") == "image" and "data" in p:          # protocol content item (robolivemem.protocol)
+            return {"image": p["data"], "mime": p.get("media_type", "image/png")}
         if "text" in p:
             return {"text": str(p["text"])}
         if "jpeg" in p:

@@ -14,7 +14,8 @@ Yijiang Li<sup>4</sup> &nbsp; Yikai Wang<sup>2</sup> &nbsp; Weirui Ye<sup>5</sup
 <p align="center">
 <a href="https://robolivemem.github.io"><b>Project page</b></a> &nbsp;·&nbsp;
 <b>Paper</b> (arXiv, coming soon) &nbsp;·&nbsp;
-<a href="#quickstart"><b>Quickstart</b></a>
+<a href="#quickstart"><b>Quickstart</b></a> &nbsp;·&nbsp;
+<a href="PROTOCOL.md"><b>Protocol</b></a>
 </p>
 
 ![Robot memory benchmarks pause the world, and RoboLiveMem does not](assets/teaser.jpg)
@@ -78,7 +79,6 @@ stale  (12 seeds: event/decoy/null; 0.1 s)
   live drop   S_P - S_L = +33.3 [+8.3, +58.3]
    execution  S_P - S_V = +33.3 [+8.3, +58.3]
    memory     S_V - S_L = +0.0 [+0.0, +0.0]
-  live decisive decisions: 100% stale; success stale 50% (8), fresh - (0)
     event  P 4/4   L 0/4   V 0/4
     decoy  P 4/4   L 4/4   V 4/4
     null   P 4/4   L 4/4   V 4/4
@@ -90,38 +90,52 @@ and `assume-change` fails every look-alike and null seed.
 
 ![A live episode](assets/tabletop_live.png)
 
-## Run your own model
+## Evaluate your agent
 
-Keys are read from environment variables only. Copy `.env.example` to `.env`, fill in the providers you use, then:
+Every tier runs as an environment server with the same interface ([PROTOCOL.md](PROTOCOL.md)). The agent gets an
+observation (instructions, text, camera images, world time) and answers with one command. Under the live clock the
+world keeps moving for as long as the agent takes, whatever the agent is: a bare model, a model inside a harness such
+as Claude Code or Codex, or your own system.
 
 ```bash
-set -a; . ./.env; set +a
+# 1. start an environment (the tabletop needs nothing else; the other tiers: see below)
+python -m robolivemem.serve --port 8800 &
 
-python -m robolivemem --model anthropic:claude-haiku-5-5 --seeds 0-5        # Anthropic API
-python -m robolivemem --model openai:<model> --seeds 0-5                    # OpenAI API
-python -m robolivemem --model gemini:<model> --seeds 0-5                    # Gemini API
-python -m robolivemem --model opus-5.5 --seeds 0-5                          # paper alias (Amazon Bedrock)
-OPENAI_BASE_URL=http://localhost:8000/v1 \
-python -m robolivemem --model openai:<served-model> --seeds 0-5             # any OpenAI-compatible server (vLLM, ...)
+# 2. run an agent on the paper's episodes of that tier
+python -m robolivemem.eval --tier tabletop --env http://127.0.0.1:8800 \
+    --agent chat:anthropic:claude-haiku-5-5 --out results/tabletop_haiku.jsonl
 
-python -m robolivemem --model <spec> --commit         # with the commit check
-python -m robolivemem --model <spec> --clock fixed:2  # charge 2 s per decision instead of the measured latency
-python -m robolivemem --model <spec> --gif gifs/      # save every episode as an animated GIF
+# 3. tables: per task and per tier, for one or many runs
+python -m robolivemem.report results/*.jsonl --out results/report
 ```
 
-The same interface drives all three tiers. In Python:
+For the whole benchmark, start the servers of every tier (below), list them in a file like
+[`envs.example.json`](envs.example.json) and run all tiers in one go: one row file per tier and one report.
 
-```python
-from robolivemem.models import Chat
-from robolivemem import metrics
-
-chat = Chat("anthropic:claude-haiku-5-5", max_tokens=1024)
-text, meta = chat("You are a robot.", [("user", ["Which mug is Grandpa's?", rgb_image])])
-meta["latency_s"]        # measured request time: what the live clock charges
-
-rows = [...]             # one dict per episode: instance, condition ("P" | "L" | "V"), success[, stale]
-print(metrics.report(rows))
+```bash
+python -m robolivemem.eval --tier all --envs envs.json --agent chat:anthropic:claude-haiku-5-5 --out results/haiku
 ```
+
+| `--agent` | What runs |
+|---|---|
+| `chat:<provider>:<model>` | the paper's reference harness around a chat model: OpenAI, Anthropic, Gemini, Amazon Bedrock, or any OpenAI-compatible server (`OPENAI_BASE_URL`, e.g. your own model behind vLLM) |
+| `my_agent.py:MyAgent` | your agent: a class with `act(obs) -> command` ([example](examples/my_agent.py)) |
+| `cmd:<command>` | an external harness started once per episode; it acts through MCP tools (`python -m robolivemem.mcp`) or over HTTP ([example](examples/external_harness.py)) |
+| `server:<policy>` | a reference policy inside the environment (privileged, stale, ...), to check an installation |
+
+`eval` writes one row per episode (runs resume where they stopped) and prints the report. The tier summary has the
+paper's quantities:
+
+- `P` and `L`: success on event seeds, paused and live;
+- `none`: live success when nothing changes;
+- `L − P`: the live drop, with a 95% paired bootstrap interval;
+- memory term `V − L`: on the families with a visible twin.
+
+Report a result as **model + harness**, with its latency source, because the harness changes both what the model sees
+and how long a decision takes (PROTOCOL.md, section 7).
+
+Keys are read from environment variables only: copy `.env.example` to `.env`, fill in the providers you use, and run
+`set -a; . ./.env; set +a`.
 
 | Provider | Spec | Environment variables |
 |---|---|---|
@@ -133,27 +147,70 @@ print(metrics.report(rows))
 
 ## The benchmark tiers
 
-| Tier | Simulator | Families | Who changes the state | Agent | Code |
+| Tier | Simulator | Families | Who changes the state | Start the environment | Needs |
 |---|---|---|---|---|---|
-| Realistic | BEHAVIOR-1K (OmniGibson, Isaac Sim) | 16 | people, robots, machines | tool-using agent: Claude Code, Codex or any API model | [`tiers/realistic`](tiers/realistic) |
-| Semi-realistic | MuJoCo kitchen (Embodied Safety Exam) | 8 | a person at the counter | one call per step | [`tiers/semi`](tiers/semi) |
-| Controlled | ManiSkill (RoboMME scenes) | 5 | scripted object motions | one call per step | [`tiers/controlled`](tiers/controlled) |
+| Realistic | BEHAVIOR-1K (OmniGibson, Isaac Sim) | 16 | people, robots, machines | one server per scene, in the BEHAVIOR-1K container ([`tiers/realistic`](tiers/realistic)) | NVIDIA RTX GPU, Docker, BEHAVIOR-1K assets (licensed by Stanford; you host them) |
+| Semi-realistic | MuJoCo kitchen (Embodied Safety Exam) | 8 | a person at the counter | `python tiers/semi/server.py` ([`tiers/semi`](tiers/semi)) | CPU, or a GPU for EGL rendering |
+| Controlled | ManiSkill (RoboMME scenes) | 5 | scripted object motions | `python tiers/controlled/server.py` ([`tiers/controlled`](tiers/controlled)) | CPU (Vulkan lavapipe) or GPU |
+| Tabletop | 2-D, built in | 1 | a person | `python -m robolivemem.serve` | nothing |
 
-Each tier's README lists its requirements and the commands for the paper's runs. The realistic tier needs an NVIDIA RTX
-GPU and the BEHAVIOR-1K assets; the other two run on a CPU (a GPU makes them faster).
+The simulators and their assets are installed and hosted by you. This repository provides:
+
+- the scenarios, scene files and task metadata;
+- the clocks, actors and checks;
+- the servers and the evaluation.
+
+`python -m robolivemem.eval --tier <tier>` then runs the paper's episodes on them:
+
+| Tier | Episodes |
+|---|---|
+| Realistic | event seeds paused and live, every seed live, twins on event and decoy seeds (about 330 episodes per agent) |
+| Semi-realistic | 36 seeds × P, L, V (864) |
+| Controlled | 40 seeds × P, L, V (600) |
+
+## Release status
+
+What this release contains and how it was checked (November 2026). The servers and the evaluation were run from a
+clean copy of this repository on our machines.
+
+| Part | Released | Checked |
+|---|---|---|
+| Protocol, model API, `eval` / `report` / `mcp` | yes | unit and end-to-end tests (`pytest -q tests`), every agent type on the tabletop |
+| Tabletop (2-D) | yes | reference policies match the paper's validation pattern |
+| Semi-realistic tier, 8 families | yes | server; reference policies (privileged solves every seed; stale fails event seeds live and passes decoy and null seeds); an API model with declared and with wall-clock latency |
+| Controlled tier, 5 tasks | yes | server; the privileged policy; an API model with and without the commit check |
+| Realistic tier, 16 scenes | yes | server in the BEHAVIOR-1K container; the stale reference policy (succeeds paused, fails event seeds live, passes decoy and null seeds); every tool; the fixed clock. Needs your own BEHAVIOR-1K install. |
+| Claude Code / Codex harness (realistic) | yes | as used for the paper |
+| Per-episode results, logs and videos of the paper | not yet: planned as a dataset release | – |
+| Analysis scripts (stale / fresh timing on the simulator tiers, offline probe, failure taxonomy) | not yet | – |
+
+With this release you can measure, for any model, harness or agent:
+
+- every tier's main-table quantities (`P`, `L`, `none`, `L − P`, the memory term), per task and per tier;
+- runs with the commit check (realistic, controlled);
+- fixed-clock runs.
+
+The stale / fresh analysis is available on the tabletop only for now.
 
 ## Repository layout
 
 ```
 robolivemem/          the protocol, installable with pip
+  protocol.py         environment server side (HTTP), observations and commands
+  env.py              client: one interface for every tier
+  agents.py           Agent base class, the reference chat harness, external harnesses
+  eval.py, report.py  run the paper's episodes; per-task and per-tier tables
+  mcp.py              the protocol as MCP tools for tool-using harnesses
   clock.py            paused, live and fixed clocks
-  metrics.py          live drop, execution and memory terms, stale / fresh split, paired bootstrap
+  metrics.py          live drop, execution and memory terms, paired bootstrap
   commit.py           the commit check
   models.py           one chat interface for every provider (keys from environment variables)
-  tabletop.py         the 2-D quickstart family (python -m robolivemem)
-tiers/realistic/      16 BEHAVIOR-1K scenes: scenario server, MCP tools, agents, aggregation
-tiers/semi/           8 MuJoCo kitchen families
-tiers/controlled/     5 ManiSkill tasks on RoboMME scenes
+  tabletop.py, serve.py   the 2-D family, in-process (python -m robolivemem) or as a server
+tiers/realistic/      16 BEHAVIOR-1K scenes: scenario servers, tools, Claude Code / Codex harness
+tiers/semi/           8 MuJoCo kitchen families and their server
+tiers/controlled/     5 ManiSkill tasks on RoboMME scenes and their server
+examples/             a custom agent and an external harness
+PROTOCOL.md           what an agent receives and sends, the clock, reporting
 tests/                pytest -q tests
 ```
 
