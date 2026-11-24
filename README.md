@@ -13,7 +13,7 @@ Yijiang Li<sup>4</sup> &nbsp; Yikai Wang<sup>2</sup> &nbsp; Weirui Ye<sup>5</sup
 
 <p align="center">
 <a href="https://robolivemem.github.io"><b>Project page</b></a> &nbsp;·&nbsp;
-<b>Paper</b> (arXiv, coming soon) &nbsp;·&nbsp;
+<a href="https://arxiv.org/pdf/2611.30047"><b>arXiv</b></a> &nbsp;·&nbsp;
 <a href="#quickstart"><b>Quickstart</b></a> &nbsp;·&nbsp;
 <a href="PROTOCOL.md"><b>Protocol</b></a>
 </p>
@@ -217,12 +217,13 @@ tests/                pytest -q tests
 ## Citation
 
 ```bibtex
-@misc{zhang2026robolivemem,
-  title  = {RoboLiveMem: Is Robot Memory Solved When the World Does Not Wait?},
-  author = {Zhang, Yunbei and Zhang, Yuyou and Wang, Janet and Liu, Ming and Li, Yijiang and Wang, Yikai and
-            Ye, Weirui and Zhao, Ding and Hamm, Jihun},
-  year   = {2026},
-  url    = {https://robolivemem.github.io}
+@article{zhang2026robolivemem,
+  title   = {RoboLiveMem: Is Robot Memory Solved When the World Does Not Wait?},
+  author  = {Zhang, Yunbei and Zhang, Yuyou and Wang, Janet and Liu, Ming and Li, Yijiang and Wang, Yikai and
+             Ye, Weirui and Zhao, Ding and Hamm, Jihun},
+  journal = {arXiv preprint arXiv:2611.30047},
+  year    = {2026},
+  url     = {https://arxiv.org/abs/2611.30047}
 }
 ```
 
